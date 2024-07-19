@@ -1,0 +1,13 @@
+# Node.js
+frontend/node_modules
+
+# Python
+eras_env/
+__pycache__/
+*.pyc
+
+# Other
+.DS_Store
+.vscode/
+.idea/
+.env
