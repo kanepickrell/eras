@@ -15,4 +15,9 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello from FastAPI"}
+    return {"message": "This is the root path of the backend."}
+
+
+@app.get("/api")
+def read_root():
+    return {"message": "Hello Kane, this is FastAPI coming to you live from the backend!"}

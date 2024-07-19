@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import logo from './logo.svg';
 import './App.css';
 
 function App() {
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        fetch("http://18.227.105.29:8000/")
-            .then(response => response.json())
-            .then(data => setMessage(data.message));
-    }, []);
-
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1>{message}</h1>
-            </header>
-        </div>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          erasXchange is currently under construction.<br />For my other work please see my site below.
+        </p>
+        <a
+          className="App-link"
+          href="https://www.kanepickrel.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Go to kanepickrel.com
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
-
