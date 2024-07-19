@@ -1,0 +1,37 @@
+name: Deploy to Lightsail
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install rsync
+        run: sudo apt-get install -y rsync
+
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.LIGHTSAILSSH }}
+
+      - name: Copy files to Lightsail
+        run: |
+          ssh-keyscan -H 18.227.105.29 >> ~/.ssh/known_hosts
+          rsync -avz --exclude='node_modules' --exclude='.git' -e "ssh -i ~/.ssh/id_rsa" . bitnami@18.227.105.29:/home/bitnami/eras/
+
+      - name: Install dependencies and restart services
+        run: |
+          ssh -i ~/.ssh/id_rsa bitnami@18.227.105.29 << 'EOF'
+          source /home/bitnami/eras/backend/eras_env/bin/activate
+          cd /home/bitnami/eras/frontend && npm install && npm run build
+          cd /home/bitnami/eras/backend && pip install -r requirements.txt
+          sudo systemctl restart nginx
+          sudo systemctl restart uvicorn
+          EOF
