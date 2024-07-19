@@ -3,7 +3,7 @@ name: Deploy to Lightsail
 on:
   push:
     branches:
-      - main  # Change this to your main branch if different
+      - main  
 
 jobs:
   deploy:
