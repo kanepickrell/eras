@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install rsync
+        run: sudo apt-get install -y rsync
+
       - name: Install SSH key
         uses: webfactory/ssh-agent@v0.5.3
         with:
