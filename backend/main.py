@@ -29,7 +29,7 @@ def load_model(model_name=None):
     # else:
     #     model_path = f'C:/repos/llm/custom_models/models--{model_name}'
     
-    model_path = 'models/models--lbjPT2-kgp'
+    model_path = '../models/models--lbjPT2-kgp'
     
     tokenizer = GPT2Tokenizer.from_pretrained(model_path)
     model = GPT2LMHeadModel.from_pretrained(model_path)
