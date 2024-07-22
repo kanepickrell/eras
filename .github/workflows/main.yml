@@ -16,20 +16,20 @@ jobs:
       - name: Install rsync
         run: sudo apt-get install -y rsync
 
-      - name: Install SSH key
-        id: install_ssh_key
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.LIGHTSAILSSH }}
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.LIGHTSAILSSH }}" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 3.146.37.201 >> ~/.ssh/known_hosts
 
       - name: Copy files to Lightsail
         run: |
-          ssh-keyscan -H 3.146.37.201 >> ~/.ssh/known_hosts
-          rsync -avz --exclude='node_modules' --exclude='.git' -e "ssh -o StrictHostKeyChecking=no" . bitnami@3.146.37.201:/home/bitnami/eras/
+          rsync -avz --exclude='node_modules' --exclude='.git' -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" . bitnami@3.146.37.201:/home/bitnami/eras/
 
       - name: Install dependencies and restart services
         run: |
-          ssh -o StrictHostKeyChecking=no bitnami@3.146.37.201 << 'EOF'
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no bitnami@3.146.37.201 << 'EOF'
           source /home/bitnami/eras/backend/eras_env/bin/activate
           cd /home/bitnami/eras/frontend && npm install && npm run build
           cd /home/bitnami/eras/backend && pip install -r requirements.txt
