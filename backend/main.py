@@ -24,12 +24,7 @@ class Query(BaseModel):
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def load_model(model_name=None):
-    # if model_name == "gpt2-base":
-    #     model_path = 'C:/repos/llm/custom_models/models--lbjPT1-kgp'
-    # else:
-    #     model_path = f'C:/repos/llm/custom_models/models--{model_name}'
-    
-    model_path = '../models/models--lbjPT2-kgp'
+    model_path = '/home/bitnami/eras/backend/models/models--lbjPT2-kgp'
     
     tokenizer = GPT2Tokenizer.from_pretrained(model_path)
     model = GPT2LMHeadModel.from_pretrained(model_path)
