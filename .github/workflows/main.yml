@@ -14,7 +14,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install rsync
-        run: sudo apt-get install -y rsync
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync
+          which rsync
 
       - name: Install SSH key
         run: |
