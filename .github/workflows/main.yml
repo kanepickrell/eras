@@ -16,10 +16,10 @@ jobs:
       - name: Install rsync
         run: sudo apt-get install -y rsync
 
-      - name: Setup SSH key
+      - name: Install SSH key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.LIGHTSAILSSH }}" | tr -d '\r' > ~/.ssh/id_rsa
+          echo "${{ secrets.LIGHTSAILSSH }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 3.146.37.201 >> ~/.ssh/known_hosts
 
