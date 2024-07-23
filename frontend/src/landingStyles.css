@@ -1,0 +1,108 @@
+/* General body styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Landing Page Styles */
+.landing-page {
+    text-align: center;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #282c34;
+    color: white;
+    padding: 100px 20px;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    margin: 0 0 20px;
+}
+
+.hero-section p {
+    font-size: 24px;
+    margin: 0 0 40px;
+}
+
+.hero-button {
+    background-color: #61dafb;
+    color: #282c34;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.hero-button:hover {
+    background-color: #21a1f1;
+}
+
+/* Features Section */
+.features-section {
+    padding: 60px 20px;
+    background-color: white;
+}
+
+.features-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 30%;
+    max-width: 30%;
+}
+
+.feature h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #666;
+}
+
+.feature a {
+    color: #282c34;
+    text-decoration: none;
+}
+
+.feature a:hover {
+    text-decoration: none; /* Ensure the link remains non-underlined when hovered */
+}
+
+/* Footer */
+.footer {
+    background-color: #282c34;
+    color: white;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: #61dafb;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
