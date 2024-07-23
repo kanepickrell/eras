@@ -12,7 +12,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background-color: #282c34;
+    background-color: rgba(122, 159, 134, 0.5);
     color: white;
     padding: 100px 20px;
 }
@@ -28,14 +28,13 @@ body {
 }
 
 .hero-button {
-    background-color: #61dafb;
+    background-color: rgba(255, 99, 71, 0.8);
     color: #282c34;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    text-decoration: none;
 }
 
 .hero-button:hover {
@@ -79,18 +78,9 @@ body {
     color: #666;
 }
 
-.feature a {
-    color: #282c34;
-    text-decoration: none;
-}
-
-.feature a:hover {
-    text-decoration: none; /* Ensure the link remains non-underlined when hovered */
-}
-
 /* Footer */
 .footer {
-    background-color: #282c34;
+    background-color: rgba(122, 159, 134, 0.5);
     color: white;
     padding: 20px 0;
     position: relative;
@@ -99,7 +89,7 @@ body {
 }
 
 .footer a {
-    color: #61dafb;
+    color: #ffffff;
     text-decoration: none;
 }
 
