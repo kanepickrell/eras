@@ -40,6 +40,20 @@ body {
     display: none; /* For Chrome, Safari, and Opera */
 }
 
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.centered-text, .centered-link {
+    margin: 10px 0;
+}
+
+
 #messages {
     list-style: none;
     padding: 0;
