@@ -28,14 +28,9 @@ jobs:
 
       - name: Copy files to Lightsail
         run: |
-          rsync -avz --exclude='node_modules' --exclude='.git' -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" . bitnami@3.146.37.201:/home/bitnami/eras/
+          rsync -avz --exclude='node_modules' --exclude='.git' --exclude='backend/models' -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" . bitnami@3.146.37.201:/home/bitnami/eras/
 
       - name: Install dependencies and restart services
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no bitnami@3.146.37.201 << 'EOF'
-          source /home/bitnami/eras/backend/eras_env/bin/activate
-          cd /home/bitnami/eras/frontend && npm install && npm run build
-          cd /home/bitnami/eras/backend && pip install -r requirements.txt
-          sudo systemctl restart nginx
-          sudo systemctl restart uvicorn
-          EOF
+          source /home/bitnami/eras/backend/eras
