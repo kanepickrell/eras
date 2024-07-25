@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+}
+
+.models-page {
+    text-align: center;
+}
+
+.models-header {
+    background-color: rgba(122, 159, 134, 0.5);
+    color: white;
+    padding: 60px 20px;
+}
+
+.models-header h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.models-intro {
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+.models-intro h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.models-intro p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* How LLMs Work Section */
+.models-mechanics {
+    padding: 40px 20px;
+    background-color: #e8f5e9;
+}
+
+.models-mechanics h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.models-mechanics p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Historical Data Section */
+.models-data {
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+.models-data h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.models-data p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Process Section */
+.process {
+    padding: 40px 20px;
+    background-color: #e8f5e9;
+}
+
+.process h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.process-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.step {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    flex: 1 1 200px;
+    max-width: 300px;
+}
+
+.step h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Footer */
+.models-footer {
+    background-color: rgba(122, 159, 134, 0.5);
+    color: white;
+    padding: 20px 0;
+}
+
+.models-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.models-footer a:hover {
+    text-decoration: underline;
+}

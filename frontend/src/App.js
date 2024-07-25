@@ -1,5 +1,6 @@
 import React from 'react';
 import Chat from './Chat';
+import Model from './Model';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './style.css';
 import './landingStyles.css';
@@ -12,6 +13,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<LandingPage />} />
                         <Route path="/lbj" element={<Chat />} />
+                        <Route path="/models" element={<Model />} />
                     </Routes>
                 </header>
             </div>
@@ -88,7 +90,7 @@ function FeaturesSection() {
 function Footer() {
     return (
         <footer className="footer">
-            <p>erasXchange is currently under construction.<br />For my other work please see my site below.</p>
+            <p>eras<p1>X</p1>change is currently under construction.<br />For my other work please see my site below.</p>
             <a href="https://www.kanepickrel.com" target="_blank" rel="noopener noreferrer">Visit my site</a>
         </footer>
     );

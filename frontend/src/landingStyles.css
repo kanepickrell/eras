@@ -1,16 +1,13 @@
-/* General body styling */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
 
-/* Landing Page Styles */
 .landing-page {
     text-align: center;
 }
 
-/* Hero Section */
 .hero-section {
     background-color: rgba(122, 159, 134, 0.5);
     color: white;
@@ -29,7 +26,7 @@ body {
 
 .hero-button {
     background-color: rgba(255, 99, 71, 0.8);
-    color: #282c34;
+    color: #ffffff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -78,6 +75,16 @@ body {
     color: #666;
 }
 
+
+.feature a {
+    color: #282c34;
+    text-decoration: none;
+}
+
+.feature a:hover {
+    text-decoration: none; /* Ensure the link remains non-underlined when hovered */
+}
+
 /* Footer */
 .footer {
     background-color: rgba(122, 159, 134, 0.5);
@@ -93,6 +100,11 @@ body {
     text-decoration: none;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+.footer p1 {
+    color: rgba(255, 99, 71, 0.8);;
 }
+
+.footer a:hover {
+    text-decoration: none;
+}
+
