@@ -27,7 +27,7 @@ function Chat() {
         try {
             const response = await fetch('http://127.0.0.1:8000/generate', {
             // const response = await fetch('https://erasxchange.com/generate', {
-
+            // comment here
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
