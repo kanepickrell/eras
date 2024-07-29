@@ -65,6 +65,11 @@ body {
     max-width: 30%;
 }
 
+.feature:hover {
+    transform: scale(1.05);
+    background-color: rgba(122, 159, 134, 0.1);
+}
+
 .feature h3 {
     font-size: 24px;
     margin-bottom: 10px;
