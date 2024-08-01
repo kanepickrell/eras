@@ -41,7 +41,7 @@ def load_model(model_name=None):
 
     model_paths = {
         "models--lbjPT2-kgp": '/home/bitnami/eras/backend/models/models--lbjPT2-kgp',
-        "models--lbjPT3-kgp": '/home/bitnami/eras/backend/models/models--lbjPT3-kgp/models--lbjPT3-kgp'
+        "models--lbjPT3-kgp": '/home/bitnami/eras/backend/models/models--lbjPT3-kgp'
     }
     
     model_path = model_paths.get(model_name)
