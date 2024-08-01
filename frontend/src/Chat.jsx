@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import './style.css';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function Chat() {
     const [messages, setMessages] = useState([]);
     const [userInput, setUserInput] = useState('');
+    const [model, setModel] = useState('models--lbjPT2-kgp');  // Default model
+
+    const modelNames = {
+        'models--lbjPT2-kgp': 'LBJ-2',
+        'models--lbjPT3-kgp': 'LBJ-3'
+    };
 
     const sendMessage = async () => {
         if (userInput.trim() === '') return;
@@ -23,16 +32,17 @@ function Chat() {
         // Auto-scroll to the bottom of the chat box
         autoScroll();
 
+        // Log the selected model to the console
+        console.log(`Selected model: ${model}`);
+
         // Send the request to the backend
         try {
-            // const response = await fetch('http://127.0.0.1:8000/generate', {
             const response = await fetch('https://erasxchange.com/generate', {
-            // comment here
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     prompt: userInput,
-                    model_name: 'gpt2-base',
+                    model_name: model,
                     max_length: 150
                 })
             });
@@ -40,12 +50,41 @@ function Chat() {
             if (response.ok) {
                 const data = await response.json();
                 typeWriterEffect(`President Johnson: ${data.response}`);
+                generateAudio(data.response);
             } else {
                 setMessages([...messages, 'Error: Unable to get a response from the backend.']);
             }
         } catch (error) {
             setMessages([...messages, 'Error: Unable to get a response from the backend.']);
         }
+    };
+
+    const generateAudio = async (text) => {
+        try {
+            const response = await fetch('https://erasxchange.com/generate_audio', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text })
+            });
+
+            if (response.ok) {
+                const audioBlob = await response.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                playAudio(audioUrl);
+            } else {
+                setMessages([...messages, 'Error: Unable to generate audio.']);
+            }
+        } catch (error) {
+            setMessages([...messages, 'Error: Unable to generate audio.']);
+        }
+    };
+
+    const playAudio = (audioUrl) => {
+        const audio = new Audio(audioUrl);
+        audio.play().catch(error => {
+            console.error(`Error playing audio: ${error}`);
+            setMessages([...messages, 'Error: Kane, Unable to play the audio.']);
+        });
     };
 
     const typeWriterEffect = (text) => {
@@ -86,8 +125,17 @@ function Chat() {
     return (
         <div>
             <header>
-                <h1 className="metrophobic-regular" style={{ paddingLeft: '20px', fontWeight: 'bolder' }}>LBJ Chat</h1>
-                <div id="model-dropdown"></div>
+                {/* <h1 className="metrophobic-regular" style={{ paddingLeft: '20px', fontWeight: 'bolder' }}>LBJ Chat</h1> */}
+                <Dropdown as={ButtonGroup} style={{ padding: '20px', fontWeight: 'bolder' }}>
+                    <Button variant="success" style={{ backgroundColor: 'rgba(255, 99, 71, 0.8)', border: 'none' }}>
+                        {modelNames[model]}
+                    </Button>
+                    <Dropdown.Toggle split variant="success" style={{ backgroundColor: 'rgba(255, 99, 71, 0.8)', border: 'none' }} id="dropdown-split-basic" />
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => setModel('models--lbjPT2-kgp')}>LBJ-2</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setModel('models--lbjPT3-kgp')}>LBJ-3</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
             </header>
             <main id="chat-container" className="metrophobic-regular">
                 <div id="chat-box" className="metrophobic-regular">

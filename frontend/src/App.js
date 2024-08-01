@@ -4,6 +4,7 @@ import Model from './Model';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './style.css';
 import './landingStyles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
@@ -52,7 +53,7 @@ function FeaturesSection() {
                     <Link to="/lbj">
                         <h3>Lyndon Baines Johnson</h3>
                     </Link>
-                    <p>Finetuned with GPT-2</p>
+                    <p>Finetuned using GPT-2</p>
                 </div>
                 <div className="feature">
                     <h3>Richard Nixon</h3>
@@ -60,7 +61,7 @@ function FeaturesSection() {
                 </div>
                 <div className="feature">
                     <h3>Noam Chomsky</h3>
-                    <p>Unavailable</p>
+                    <p>Finetuned using DialoGPT</p>
                 </div>
                 <div className="feature">
                     <h3>Virginia Woolf</h3>

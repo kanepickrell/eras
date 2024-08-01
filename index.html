@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+</head>
+<body>
+    <h1>Text to Speech</h1>
+    <textarea id="text" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+    <br>
+    <button onclick="speak()">Speak</button>
+    <br>
+    <audio id="audio" controls></audio>
+
+    <script>
+        async function speak() {
+            const text = document.getElementById('text').value;
+            const response = await fetch('/speak', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text })
+            });
+
+            if (response.ok) {
+                const audioBlob = await response.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audio = document.getElementById('audio');
+                audio.src = audioUrl;
+                audio.play();
+            } else {
+                console.error('Error:', response.statusText);
+            }
+        }
+    </script>
+</body>
+</html>

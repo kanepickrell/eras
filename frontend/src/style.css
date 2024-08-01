@@ -26,7 +26,7 @@ body {
 #chat-box {
     padding: 10px;
     border: 1px solid rgba(122, 159, 134, 0.5);
-    height: 400px;
+    height: 300px;
     width: 100%;
     overflow-y: scroll;
     margin-bottom: 10px;
