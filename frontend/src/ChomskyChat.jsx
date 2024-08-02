@@ -22,6 +22,19 @@ const ChomskyChat = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [audioEnabled, setAudioEnabled] = useState(false);
 
+  const getMessageStyle = (isUser) => {
+    return {
+      backgroundColor: isUser ? '#81b89f' : 'rgba(158, 172, 57, 1)',
+      alignSelf: isUser ? 'flex-end' : 'flex-start',
+      color: 'white',
+      padding: '20px',
+      margin: '10px 0',
+      borderRadius: '10px',
+      maxWidth: '70%',
+      wordWrap: 'break-word',
+    };
+  };
+
   const handleSendMessage = async () => {
     if (input.trim()) {
       setMessages((prevMessages) => [...prevMessages, { text: input, isUser: true }]);
@@ -152,20 +165,49 @@ const ChomskyChat = () => {
 
       <div id="chat-box" className="chat-box" ref={chatBoxRef} style={{ flex: 1, overflowY: 'auto' }}>
         {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.isUser ? 'user-message' : 'llm-message'}`} style={{ alignSelf: msg.isUser ? 'flex-end' : 'flex-start' }}>
+          <div 
+            key={index} 
+            className="message" 
+            style={{ 
+              backgroundColor: msg.isUser ? '#81b89f' : '#f28b82',  // Soft red color for LLM responses
+              alignSelf: msg.isUser ? 'flex-end' : 'flex-start',
+              color: 'white',
+              padding: '20px',
+              margin: '10px 0',
+              borderRadius: '10px',
+              maxWidth: '70%',
+              wordWrap: 'break-word',
+            }}
+          >
             {msg.text}
           </div>
         ))}
         {typingMessage && (
-          <div className="message llm-message">{typingMessage}</div>
+          <div 
+            className="message llm-message" 
+            style={{ 
+              backgroundColor: '#f28b82',  // Ensure the typing message also uses the soft red color
+              alignSelf: 'flex-start',
+              color: 'white',
+              padding: '20px',
+              margin: '10px 0',
+              borderRadius: '10px',
+              maxWidth: '70%',
+              wordWrap: 'break-word',
+            }}
+          >
+            {typingMessage}
+          </div>
         )}
       </div>
+
+
       {showSpinner ? (
         // <div className="spinner-container">
         //   <SpinnerRoundFilled size={75} thickness={180} speed={60} color="rgba(57, 136, 172, 1)" />
         // </div>
         <div className="spinner-container">
-            <SpinnerDotted size={75} thickness={180} speed={60} color="rgba(172, 157, 57, 1)" />
+            <SpinnerDotted size={75} thickness={180} speed={60} color="#f28b82" />
         </div>
       ) : isLLMResponding && (
         <div className="sound-icon">
