@@ -65,7 +65,7 @@ const NixonChat = () => {
         const response = await fetch('https://erasxchange.com/generate_audio', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text })
+          body: JSON.stringify({ text, id: "519ymJIpcIOZfou77nW5" })
         });
 
         if (response.ok) {

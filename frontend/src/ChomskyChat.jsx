@@ -165,7 +165,7 @@ const ChomskyChat = () => {
         //   <SpinnerRoundFilled size={75} thickness={180} speed={60} color="rgba(57, 136, 172, 1)" />
         // </div>
         <div className="spinner-container">
-            <SpinnerDotted size={75} thickness={180} speed={60} color="rgba(57, 109, 172, 1)" />
+            <SpinnerDotted size={75} thickness={180} speed={60} color="rgba(172, 157, 57, 1)" />
         </div>
       ) : isLLMResponding && (
         <div className="sound-icon">
