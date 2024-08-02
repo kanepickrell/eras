@@ -156,7 +156,7 @@ function LBJChat() {
             key={index} 
             className="message" 
             style={{ 
-              backgroundColor: msg.isUser ? '#81b89f' : '#f28b82',  // Soft red color for LLM responses
+              backgroundColor: msg.isUser ? '#81b89f' : 'rgb(95, 160, 176)',  // Soft red color for LLM responses
               alignSelf: msg.isUser ? 'flex-end' : 'flex-start',
               color: 'white',
               padding: '20px',
