@@ -17,17 +17,19 @@ html, body {
   background: white !important;
 }
 
-/* Chat box styling */
+/* Parent container styling */
 .chat-box {
+  display: flex;
+  flex-direction: column; /* or row */
   padding: 10px;
   height: 300px;
   width: 100%;
   margin-bottom: 10px;
   background-color: white !important;
-  border-radius: 0% !important;
+  border: none !important;
+  border-radius: 0 !important;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  border-top: none !important;
 }
 
 /* Message styling */
@@ -35,9 +37,9 @@ html, body {
   padding: 20px;
   margin: 10px 0;
   border-radius: 10px;
-  max-width: 70% ;
+  max-width: 70%;
   word-wrap: break-word;
-  align-self: flex-end;
+  align-self: flex-end ; /* Ensure align-self is applied */
 }
 
 .user-message {

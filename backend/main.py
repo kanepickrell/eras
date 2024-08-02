@@ -28,6 +28,7 @@ class Query(BaseModel):
 
 class AudioQuery(BaseModel):
     text: str
+    id: str
 
 # Set device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -88,9 +89,9 @@ async def generate_text_endpoint(query: Query):
 
 @app.post("/generate_audio")
 async def generate_audio_endpoint(audio_query: AudioQuery):
-    ELEVENLABS_API_KEY = "sk_7de5f110a0e94d927714ef3f6e91491f4b9402d5d9827107"  # Replace with your actual API key
-    ELEVENLABS_VOICE_ID = "lTI0koW55h9kYCaiTPGY"  
-    ELEVENLABS_API_URL = f'https://api.elevenlabs.io/v1/text-to-speech/{ELEVENLABS_VOICE_ID}'
+    ELEVENLABS_API_KEY = "sk_7de5f110a0e94d927714ef3f6e91491f4b9402d5d9827107"  
+    # ELEVENLABS_VOICE_ID = audio_query.id
+    ELEVENLABS_API_URL = f'https://api.elevenlabs.io/v1/text-to-speech/{audio_query.id}'
     
     headers = {
         "xi-api-key": ELEVENLABS_API_KEY,

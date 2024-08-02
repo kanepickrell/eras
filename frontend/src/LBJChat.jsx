@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-// import './ChomskyStyle.css';
+// import './LBJStyle.css';
 import './ChatStyle.css'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -7,7 +7,7 @@ import { SpinnerRoundFilled, SpinnerDotted } from 'spinners-react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
-const ChomskyChat = () => {
+function LBJChat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const chatBoxRef = useRef(null);
@@ -46,7 +46,7 @@ const ChomskyChat = () => {
             await generateAudio(data.response);
           }
           setIsLLMResponding(true);
-          typeWriterEffect(` Noam Chomsky: ${data.response}`);
+          typeWriterEffect(` Lyndon Johnson: ${data.response}`);
         } else {
           setMessages((prevMessages) => [...prevMessages, { text: 'Error: Unable to get a response from the backend.', isUser: false }]);
         }
@@ -64,7 +64,7 @@ const ChomskyChat = () => {
         const response = await fetch('https://erasxchange.com/generate_audio', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text, id: "aWP6LNsJpqYVer2st2CX" })
+          body: JSON.stringify({ text, id: "lTI0koW55h9kYCaiTPGY" })
         });
 
         if (response.ok) {
@@ -165,7 +165,7 @@ const ChomskyChat = () => {
         //   <SpinnerRoundFilled size={75} thickness={180} speed={60} color="rgba(57, 136, 172, 1)" />
         // </div>
         <div className="spinner-container">
-            <SpinnerDotted size={75} thickness={180} speed={60} color="rgba(57, 109, 172, 1)" />
+            <SpinnerDotted size={75} thickness={180} speed={60} color="rgba(95, 160, 176, 1)" />
         </div>
       ) : isLLMResponding && (
         <div className="sound-icon">
@@ -180,7 +180,7 @@ const ChomskyChat = () => {
         <input
           type="text"
           value={input}
-          placeholder="Ask Professor Chomsky..."
+          placeholder="Ask President Johnson..."
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
         />
@@ -190,4 +190,4 @@ const ChomskyChat = () => {
   );
 };
 
-export default ChomskyChat;
+export default LBJChat;

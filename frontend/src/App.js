@@ -1,5 +1,5 @@
 import React from 'react';
-import Chat from './Chat';
+import LBJChat from './LBJChat';
 import ChomskyChat from './ChomskyChat';
 import NixonChat from './NixonChat';
 import Model from './Model';
@@ -15,9 +15,9 @@ function App() {
                 <header className="App-header">
                     <Routes>
                         <Route path="/" element={<LandingPage />} />
-                        <Route path="/lbj" element={<Chat />} />
+                        <Route path="/lbj" element={<LBJChat />} />
                         <Route path="/models" element={<Model />} />
-                        {/* <Route path="/nixon" element={<NixonChat />} /> */}
+                        <Route path="/nixon" element={<NixonChat />} />
                         <Route path="/chomsky" element={<ChomskyChat />} />
                     </Routes>
                 </header>

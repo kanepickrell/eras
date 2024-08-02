@@ -1,0 +1,281 @@
+/* General styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background: white;
+  }
+  
+  /* Container styling */
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    background: white !important;
+  }
+  
+  /* Parent container styling */
+  .chat-box {
+    display: flex;
+    flex-direction: column; /* or row */
+    padding: 10px;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: white !important;
+    border: none !important;
+    border-radius: 0 !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  /* Message styling */
+  .message {
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+    align-self: flex-end ; /* Ensure align-self is applied */
+  }
+  
+  .user-message {
+    background-color: #81b89f !important;
+    align-self: flex-end;
+    color: white;
+  }
+  
+  .llm-message {
+    background-color: rgb(95, 160, 176) !important;
+    color: white;
+    align-self: flex-start;
+    text-align: left;
+  }
+  
+  .input-container {
+    display: flex;
+    padding: 10px;
+    padding-bottom: 20px;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .input-container input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  /* Button styling */
+  .input-container button {
+    margin-left: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgb(230, 230, 230) !important;
+    color: black !important;
+    cursor: pointer;
+  }
+  
+  .input-container button:hover {
+    background: rgba(122, 159, 134, .5);
+    color: black;
+  }
+  
+  /* Spinner container styling */
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding-bottom: 30px;
+  }
+  
+  /* Sound icon styling */
+  .sound-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  /* Sound wave animation styling */
+  .sound-wave {
+    width: 250px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .sound-wave .bar {
+    display: block;
+    width: 2px;
+    margin-right: 1px;
+    height: 90px;
+    background: #7C93BF;
+    animation: sound 0ms -800ms linear infinite alternate;
+    transition: height 0.8s;
+  }
+  
+  @keyframes sound {
+    0% {
+      opacity: .35;
+      height: 6px;
+    }
+    100% {
+      opacity: 1;
+      height: 46px;
+    }
+  }
+  
+  /* Sound wave bar animations */
+  .bar:nth-child(1) {
+    height: 2px;
+    animation-duration: 474ms;
+  }
+  
+  .bar:nth-child(2) {
+    height: 10px;
+    animation-duration: 433ms;
+  }
+  
+  .bar:nth-child(3) {
+    height: 18px;
+    animation-duration: 407ms;
+  }
+  
+  .bar:nth-child(4) {
+    height: 26px;
+    animation-duration: 458ms;
+  }
+  
+  .bar:nth-child(5) {
+    height: 30px;
+    animation-duration: 400ms;
+  }
+  
+  .bar:nth-child(6) {
+    height: 32px;
+    animation-duration: 427ms;
+  }
+  
+  .bar:nth-child(7) {
+    height: 34px;
+    animation-duration: 441ms;
+  }
+  
+  .bar:nth-child(8) {
+    height: 36px;
+    animation-duration: 419ms;
+  }
+  
+  .bar:nth-child(9) {
+    height: 40px;
+    animation-duration: 487ms;
+  }
+  
+  .bar:nth-child(10) {
+    height: 46px;
+    animation-duration: 442ms;
+  }
+  
+  .bar:nth-child(11) {
+    height: 2px;
+    animation-duration: 474ms;
+  }
+  
+  .bar:nth-child(12) {
+    height: 10px;
+    animation-duration: 433ms;
+  }
+  
+  .bar:nth-child(13) {
+    height: 18px;
+    animation-duration: 407ms;
+  }
+  
+  .bar:nth-child(14) {
+    height: 26px;
+    animation-duration: 458ms;
+  }
+  
+  .bar:nth-child(15) {
+    height: 30px;
+    animation-duration: 400ms;
+  }
+  
+  .bar:nth-child(16) {
+    height: 32px;
+    animation-duration: 427ms;
+  }
+  
+  .bar:nth-child(17) {
+    height: 34px;
+    animation-duration: 441ms;
+  }
+  
+  .bar:nth-child(18) {
+    height: 36px;
+    animation-duration: 419ms;
+  }
+  
+  .bar:nth-child(19) {
+    height: 40px;
+    animation-duration: 487ms;
+  }
+  
+  .bar:nth-child(20) {
+    height: 46px;
+    animation-duration: 442ms;
+  }
+  
+  /* Model selector styling */
+  .model-selector {
+    padding: 10px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sidebar-shown .chat-container {
+    grid-template-columns: 250px 1fr; /* Adjust the width of the sidebar */
+  }
+  
+  sidebar .offcanvas {
+    background-color: tomato !important;
+  }
+
+.offcanvas-header{
+    background-color: rgb(230, 230, 230) !important;
+}
+
+/* Tomato sidebar styling */
+.offcanvas-body {
+    background-color: rgb(230, 230, 230) !important;
+    }
+  
+  .toggle-button {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    z-index: 1000;
+    padding: 5px 10px; /* Reduced padding for a more contained effect */
+    margin-left: 20px;
+    background-color: transparent; /* Ensure the initial background is transparent */
+    border: none; /* Remove any default button borders */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    border-radius: 5px; /* Rounded corners for cleaner hover effect */
+  }
+  
+  .toggle-button:hover {
+    background-color:rgba(122, 159, 134, .5); 
+    transform: scale(1.05); 
+  }
