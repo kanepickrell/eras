@@ -1,8 +1,10 @@
 import React from 'react';
 import Chat from './Chat';
+import ChomskyChat from './ChomskyChat';
+import NixonChat from './NixonChat';
 import Model from './Model';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './style.css';
+// import './style.css';
 import './landingStyles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,6 +17,8 @@ function App() {
                         <Route path="/" element={<LandingPage />} />
                         <Route path="/lbj" element={<Chat />} />
                         <Route path="/models" element={<Model />} />
+                        {/* <Route path="/nixon" element={<NixonChat />} /> */}
+                        <Route path="/chomsky" element={<ChomskyChat />} />
                     </Routes>
                 </header>
             </div>
@@ -56,32 +60,16 @@ function FeaturesSection() {
                     <p>Finetuned using GPT-2</p>
                 </div>
                 <div className="feature">
-                    <h3>Richard Nixon</h3>
+                    <Link to="/nixon">
+                        <h3>Richard Nixon</h3>
+                    </Link>
                     <p>Unavailable</p>
                 </div>
                 <div className="feature">
+                    <Link to="/chomsky">
                     <h3>Noam Chomsky</h3>
+                    </Link>
                     <p>Finetuned using DialoGPT</p>
-                </div>
-                <div className="feature">
-                    <h3>Virginia Woolf</h3>
-                    <p>Unavailable</p>
-                </div>
-                <div className="feature">
-                    <h3>Winston Churchill</h3>
-                    <p>Unavailable</p>
-                </div>
-                <div className="feature">
-                    <h3>George Orwell</h3>
-                    <p>Unavailable</p>
-                </div>
-                <div className="feature">
-                    <h3>Isaac Newton</h3>
-                    <p>Unavailable</p>
-                </div>
-                <div className="feature">
-                    <h3>Marie Curie</h3>
-                    <p>Unavailable</p>
                 </div>
             </div>
         </section>

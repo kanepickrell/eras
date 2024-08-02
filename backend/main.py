@@ -53,7 +53,7 @@ def load_model(model_name=None):
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForCausalLM.from_pretrained(model_path)
 
-    if model_path == "/home/bitnami/eras/backend/models/models--lbjPT2-kgp":
+    if model_path == '/home/bitnami/eras/backend/models/models--lbjPT2-kgp':
         tokenizer = GPT2Tokenizer.from_pretrained(model_path)
         model = GPT2LMHeadModel.from_pretrained(model_path)
 
@@ -61,7 +61,7 @@ def load_model(model_name=None):
     model.eval()
     return model, tokenizer
 
-def generate_text(prompt, model, tokenizer, max_length=200):
+def generate_text(prompt, model, tokenizer, max_length=100):
     inputs = tokenizer.encode(prompt, return_tensors='pt').to(device)
     outputs = model.generate(
         inputs, 
@@ -81,12 +81,15 @@ async def generate_text_endpoint(query: Query):
     model, tokenizer = load_model(query.model_name)
     response = generate_text(query.prompt, model, tokenizer, query.max_length)
     print(response)
+    # in response, can you check for any incomplete sentences at the end and delete the sentence so it at least ends with a period
+    if response[-1] != ".":
+        response = response[:response.rfind(".")+1]
     return {"response": response}
 
 @app.post("/generate_audio")
 async def generate_audio_endpoint(audio_query: AudioQuery):
     ELEVENLABS_API_KEY = "sk_7de5f110a0e94d927714ef3f6e91491f4b9402d5d9827107"  # Replace with your actual API key
-    ELEVENLABS_VOICE_ID = "lTI0koW55h9kYCaiTPGY"  # Replace with your actual voice ID
+    ELEVENLABS_VOICE_ID = "lTI0koW55h9kYCaiTPGY"  
     ELEVENLABS_API_URL = f'https://api.elevenlabs.io/v1/text-to-speech/{ELEVENLABS_VOICE_ID}'
     
     headers = {

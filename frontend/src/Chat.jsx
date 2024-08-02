@@ -49,8 +49,9 @@ function Chat() {
 
             if (response.ok) {
                 const data = await response.json();
-                typeWriterEffect(`President Johnson: ${data.response}`);
                 generateAudio(data.response);
+                typeWriterEffect(`President Johnson: ${data.response}`);
+                
             } else {
                 setMessages([...messages, 'Error: Unable to get a response from the backend.']);
             }
@@ -137,32 +138,32 @@ function Chat() {
                     </Dropdown.Menu>
                 </Dropdown>
             </header>
-            <main id="chat-container" className="metrophobic-regular">
-                <div id="chat-box" className="metrophobic-regular">
-                    {messages.map((msg, index) => (
-                        <div key={index}>{msg}</div>
-                    ))}
-                </div>
-                <input
-                    type="text"
-                    id="user-input"
-                    placeholder="Ask President Johnson..."
-                    autoComplete="off"
-                    className="metrophobic-regular"
-                    value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
-                    onKeyPress={(e) => {
-                        if (e.key === 'Enter') sendMessage();
-                    }}
-                />
-                <button
-                    id="send-btn"
-                    className="metrophobic-regular"
-                    onClick={sendMessage}
-                >
-                    Chat
-                </button>
-            </main>
+                <main id="chat-container" className="metrophobic-regular">
+                    <div id="chat-box" className="metrophobic-regular">
+                        {messages.map((msg, index) => (
+                            <div key={index}>{msg}</div>
+                        ))}
+                    </div>
+                    <input
+                        type="text"
+                        id="user-input"
+                        placeholder="Ask President Johnson..."
+                        autoComplete="off"
+                        className="metrophobic-regular"
+                        value={userInput}
+                        onChange={(e) => setUserInput(e.target.value)}
+                        onKeyPress={(e) => {
+                            if (e.key === 'Enter') sendMessage();
+                        }}
+                    />
+                    <button
+                        id="send-btn"
+                        className="metrophobic-regular"
+                        onClick={sendMessage}
+                    >
+                        Chat
+                    </button>
+                </main>
         </div>
     );
 }
